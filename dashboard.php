@@ -1,5 +1,5 @@
 <!-- <?php
-include "./controller/db_operation.php";
+include "./db_operation.php";
     $connString = connectToDatabase();
     $tableName = 'std_details';
     $students = table($tableName, $connString);
