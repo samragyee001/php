@@ -3,9 +3,7 @@ function connectToDatabase(){
     $host= "localhost";
     $username = "root";//default
     $password = NULL;//value 
-    $dbname ="secaphp";
-// pdo-php data object, dsn-domain server name,pdo like class,inside constructor parameters
-// conn connection, atttributes just for error handling, return to use connection string
+    $dbname ="......";
     try{
         $conn = new PDO("mysql:host=$host;dbname=$dbname",$username, $password);
         $conn->setAttribute( PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -15,10 +13,9 @@ function connectToDatabase(){
       echo "Connection failed". $e->getMessage();
     }
 }
-// try catch error handling--if error catch runs error
+
 function createTable($tableName, $conn){
      $query ="CREATE TABLE IF NOT EXISTS $tableName( 
-    --  query error shown in execute -->
       id INT AUTO_INCREMENT PRIMARY KEY,
       username VARCHAR(50) NOT NULL,
       email VARCHAR(50) NOT NULL,
@@ -44,7 +41,7 @@ function insertUser($tableName,$username, $email, $password,$conn) {
        
         if( $insertTable->execute()){
              // Redirect to login page after successful insertion
-            header("Location: ../view/login.php");
+            header("Location: ./login.php");
         }
         // echo "</br>"."Data inserted successfully";
     } catch (PDOException $e) {
@@ -87,12 +84,12 @@ function getStudentById($conn, $tableName, $id) {
         $stmt = $conn->prepare($query);
         // $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);  // Single row returs
+        return $stmt->fetch(PDO::FETCH_ASSOC); 
     } catch (PDOException $e) {
         echo "Error" . $e->getMessage();
         return null;
     }
 }
-//print_r($...) for json format in table
+
 ?>
 
