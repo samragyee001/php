@@ -1,6 +1,6 @@
 <?php
-include '../controller/db_operation.php';
-include '../view/registrationFrom.php';
+include './db_operation.php';
+include './registrationFrom.php';
 $tableName ="userdetails";
 $connString = connectToDatabase();
 createTable($tableName, $connString);
