@@ -28,7 +28,7 @@
 
 
 <!-- <?php
-    include("../controller/db_operation.php");
+    include("./db_operation.php");
     $connString = connectToDatabase();
     $tableName = 'userdetails';
     if (isset($_POST['username'], $_POST['password'])) {
